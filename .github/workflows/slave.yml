@@ -1,0 +1,52 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Test action
+
+# Don't run this workflow concurrently
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  push:
+  repository_dispatch:
+    types: [master-event]
+jobs:
+  slave_action_1:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: LouisBrunner/checks-action@v1.6.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        name: slave_action_1
+        conclusion: success
+        action_url: https://docs.luxonis.com/projects/api/en/latest/components/nodes/image_manip/
+        details_url: https://docs.luxonis.com/projects/api/en/latest/components/nodes/imu/
+        repo: luxonis/remote_repo_check_slave
+
+  slave_action_2:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: LouisBrunner/checks-action@v1.6.0
+      with:
+        token: ${{ secrets.PAT }}
+        name: slave_action_2
+        conclusion: failure
+        action_url: https://docs.luxonis.com/projects/api/en/latest/components/nodes/image_manip/
+        details_url: https://docs.luxonis.com/projects/api/en/latest/components/nodes/imu/
+        repo: luxonis/remote_repo_check
+
+  slave_action_3:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: LouisBrunner/checks-action@v1.6.0
+      with:
+        token: ${{ secrets.FGT }}
+        name: slave_action_3
+        conclusion: neutral
+        action_url: https://docs.luxonis.com/projects/api/en/latest/components/nodes/image_manip/
+        details_url: https://docs.luxonis.com/projects/api/en/latest/components/nodes/imu/
+        repo: luxonis/remote_repo_check
