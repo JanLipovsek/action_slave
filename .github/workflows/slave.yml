@@ -20,8 +20,6 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: slave_action_1
         conclusion: success
-        action_url: https://docs.luxonis.com/projects/api/en/latest/components/nodes/image_manip/
-        details_url: https://docs.luxonis.com/projects/api/en/latest/components/nodes/imu/
         repo: JanLipovsek/action_slave
   slave_action_2:
     runs-on: ubuntu-latest
@@ -32,8 +30,6 @@ jobs:
         token: ${{ secrets.FGT }}
         name: slave_action_2
         conclusion: failure
-        action_url: https://docs.luxonis.com/projects/api/en/latest/components/nodes/image_manip/
-        details_url: https://docs.luxonis.com/projects/api/en/latest/components/nodes/imu/
         repo: JanLipovsek/action_master
   slave_action_3:
     runs-on: ubuntu-latest
@@ -44,6 +40,4 @@ jobs:
         token: ${{ secrets.FGT }}
         name: slave_action_3
         conclusion: neutral
-        action_url: https://docs.luxonis.com/projects/api/en/latest/components/nodes/image_manip/
-        details_url: https://docs.luxonis.com/projects/api/en/latest/components/nodes/imu/
         repo: JanLipovsek/action_master
