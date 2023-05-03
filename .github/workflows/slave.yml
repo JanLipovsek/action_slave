@@ -17,7 +17,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.FGT2 }}
         name: slave_action_1
         conclusion: success
         repo: JanLipovsek/action_slave
@@ -27,7 +27,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
-        token: ${{ secrets.FGT }}
+        token: ${{ secrets.FGT2 }}
         name: slave_action_2
         conclusion: failure
         repo: JanLipovsek/action_master
@@ -37,7 +37,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
-        token: ${{ secrets.FGT }}
+        token: ${{ secrets.FGT2 }}
         name: slave_action_3
         conclusion: neutral
         repo: JanLipovsek/action_master
