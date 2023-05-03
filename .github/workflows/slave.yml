@@ -41,3 +41,12 @@ jobs:
         name: slave_action_3
         conclusion: neutral
         repo: JanLipovsek/action_master
+  slave_action_4:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: LouisBrunner/checks-action@v1.6.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        name: slave_action_4
+        conclusion: success
