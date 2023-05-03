@@ -41,6 +41,7 @@ jobs:
         name: slave_action_3
         conclusion: neutral
         repo: JanLipovsek/action_master
+        
   slave_action_4:
     runs-on: ubuntu-latest
     steps:
