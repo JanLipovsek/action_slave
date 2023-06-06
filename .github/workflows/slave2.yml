@@ -19,4 +19,5 @@ jobs:
       - name: Print Input Value
         run: |
             echo "The value of 'some_input' is: ${{ github.event.inputs.some_input }}"
-
+      - name: Adding markdown
+        run: echo "https://github.com/JanLipovsek/action_master/actions/runs/${{ github.event.inputs.some_input }}" >> $GITHUB_STEP_SUMMARY
