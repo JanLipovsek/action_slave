@@ -16,7 +16,7 @@ jobs:
       with:
         repo: JanLipovsek/action_master
         sha: ${{github.event.client_payload.sha}}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test Basic Success
         conclusion: success
 
@@ -29,7 +29,7 @@ jobs:
       with:
         repo: JanLipovsek/action_master
         sha: ${{github.event.client_payload.sha}}
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test Basic Success (Implicit)
         conclusion: success
         output: |
@@ -43,7 +43,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test Basic Failure
         conclusion: failure
 
@@ -55,7 +55,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test Basic Neutral
         conclusion: neutral
 
@@ -66,7 +66,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test Basic Cancelled
         conclusion: cancelled
 
@@ -77,7 +77,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test Basic Timed Out
         conclusion: timed_out
 
@@ -88,7 +88,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test Basic Action Required
         conclusion: action_required
         action_url: https://example.com/action
@@ -102,7 +102,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test With Details
         conclusion: success
         action_url: https://example.com/action
@@ -116,7 +116,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test With Annotations
         conclusion: success
         # output.summary is required with actions!
@@ -138,7 +138,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test With Annotations From Run
         conclusion: success
         # output.summary is required with actions!
@@ -154,7 +154,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test With Images
         conclusion: success
         # output.summary is required with actions!
@@ -176,7 +176,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test With Images From Run
         conclusion: success
         # output.summary is required with actions!
@@ -192,7 +192,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test With Actions
         conclusion: success
         action_url: https://example.com/action
@@ -213,7 +213,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test With Actions From Run
         conclusion: success
         action_url: https://example.com/action
@@ -231,14 +231,14 @@ jobs:
       id: init
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test With Init
         status: in_progress
     - run: sleep 30
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         check_id: ${{ steps.init.outputs.check_id }}
         status: completed
         output: |
@@ -253,14 +253,14 @@ jobs:
       id: init
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test With Init (Implicit)
         status: in_progress
     - run: sleep 30
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         check_id: ${{ steps.init.outputs.check_id }}
         conclusion: success
 
@@ -272,7 +272,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test Based On Job (Success)
         conclusion: ${{ job.status }}
 
@@ -285,6 +285,6 @@ jobs:
       if: always()
       with:
         repo: JanLipovsek/action_master
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOKEN }}
         name: Test Based On Job (Failure)
         conclusion: ${{ job.status }}
