@@ -9,8 +9,7 @@ jobs:
   ## Basic
   test_basic_success:
     runs-on: ubuntu-latest
-    permissions:
-        pull-requests: write
+    permissions: write-all
     steps:
     - uses: actions/checkout@v3
     - uses: LouisBrunner/checks-action@v1.6.0
@@ -22,8 +21,7 @@ jobs:
 
   test_basic_success_with_output:
     runs-on: ubuntu-latest
-    permissions:
-        pull-requests: write
+    permissions: write-all
     steps:
     - uses: actions/checkout@v3
     - uses: LouisBrunner/checks-action@v1.6.0
@@ -37,8 +35,7 @@ jobs:
 
   test_basic_failure:
     runs-on: ubuntu-latest
-    permissions:
-        pull-requests: write
+    permissions: write-all
     steps:
     - uses: actions/checkout@v3
     - uses: LouisBrunner/checks-action@v1.6.0
