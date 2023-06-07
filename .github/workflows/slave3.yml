@@ -1,4 +1,4 @@
-name: Deploy Env
+name: slave3
 
 on:
   workflow_dispatch:
