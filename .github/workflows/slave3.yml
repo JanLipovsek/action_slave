@@ -5,12 +5,14 @@ on:
     inputs:
       upstream-url:
         description: URL of upstream run
-
+#
 jobs:
   example:
     runs-on: ubuntu-latest
     steps:
       - if: ${{ inputs.upstream-url }}
         name: ${{ inputs.upstream-url }}
-        run:
+        run: |
+          sleep 30
           echo 'Started by [${{ inputs.upstream-url }}](${{ inputs.upstream-url }})' >> "$GITHUB_STEP_SUMMARY"
+          sleep 30
