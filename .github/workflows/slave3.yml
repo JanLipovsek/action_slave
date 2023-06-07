@@ -16,6 +16,7 @@ jobs:
       run: |
           echo $GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID | \
               tee /tmp/${{ github.event.inputs.trigger_uuid }}
+          sleep 30
       
     - name: Upload UUID As An Artifact
       uses: actions/upload-artifact@v2
