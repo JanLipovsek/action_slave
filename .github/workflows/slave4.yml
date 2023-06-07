@@ -15,6 +15,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
+        sha: ${{github.event.client_payload.sha}}
         token: ${{ secrets.GITHUB_TOKEN }}
         name: Test Basic Success
         conclusion: success
@@ -27,6 +28,7 @@ jobs:
     - uses: LouisBrunner/checks-action@v1.6.0
       with:
         repo: JanLipovsek/action_master
+        sha: ${{github.event.client_payload.sha}}
         token: ${{ secrets.GITHUB_TOKEN }}
         name: Test Basic Success (Implicit)
         conclusion: success
