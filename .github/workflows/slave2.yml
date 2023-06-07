@@ -1,14 +1,11 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-
-
 name: action-test2
+
 on:
   workflow_dispatch:
     inputs:
-        some_input:
-            description: 'An example input'
-        distinct_id:
+      some_input:
+        description: 'An example input'
+      distinct_id:
 
 jobs:
   test:
@@ -18,6 +15,13 @@ jobs:
         run: echo ${{ github.event.inputs.distinct_id }}
       - name: Print Input Value
         run: |
-            echo "The value of 'some_input' is: ${{ github.event.inputs.some_input }}"
+          echo "The value of 'some_input' is: ${{ github.event.inputs.some_input }}"
+
+  test2:
+    runs-on: ubuntu-latest
+    steps:
       - name: Adding markdown
-        run: echo "https://github.com/JanLipovsek/action_master/actions/runs/${{ github.event.inputs.some_input }}" >> $GITHUB_STEP_SUMMARY
+        run: |
+          sleep 30
+          echo "https://github.com/JanLipovsek/action_master/actions/runs/${{ github.event.inputs.some_input }}" >> $GITHUB_STEP_SUMMARY
+          sleep 30
