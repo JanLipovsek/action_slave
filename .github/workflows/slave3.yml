@@ -3,43 +3,14 @@ name: slave3
 on:
   workflow_dispatch:
     inputs:
-      trigger_uuid:
-        description: 'the trigger UUIID for which we will create an artifact'
-        required: false
-      some_input:
-        description: 'An example input'
-      distinct_id:
+      upstream-url:
+        description: URL of upstream run
 
 jobs:
-  test:
+  example:
     runs-on: ubuntu-latest
     steps:
-      - name: echo distinct ID ${{ github.event.inputs.distinct_id }}
-        run: echo ${{ github.event.inputs.distinct_id }}
-      - name: Print Input Value
-        run: |
-          echo "The value of 'some_input' is: ${{ github.event.inputs.some_input }}"
-
-  deploy-env:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create Run UUID Artifact
-        if: github.event.inputs.trigger_uuid != ''
-        run: |
-          echo $GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID | \
-            tee /tmp/${{ github.event.inputs.trigger_uuid }}
-          sleep 30
-      
-      - name: Upload UUID As An Artifact
-        uses: actions/upload-artifact@v2
-        if: ${{ always() && github.event.inputs.trigger_uuid != '' }}
-        with:
-          name: ${{ github.event.inputs.trigger_uuid }}
-          path: /tmp/${{ github.event.inputs.trigger_uuid }}
-
-  test2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Adding markdown
-        run: |
-          echo "https://github.com/JanLipovsek/action_master/actions/runs/${{ github.event.inputs.some_input }}" >> $GITHUB_STEP_SUMMARY
+      - if: ${{ inputs.upstream-url }}
+        name: ${{ inputs.upstream-url }}
+        run:
+          echo 'Started by [${{ inputs.upstream-url }}](${{ inputs.upstream-url }})' >> "$GITHUB_STEP_SUMMARY"
